@@ -1,3 +1,4 @@
+from urllib import response
 from flask import Blueprint, request, jsonify, render_template
 from helpers import token_required
 from models import db, User, Contact, contact_schema, contacts_schema
@@ -19,7 +20,7 @@ def create_contact(current_user_token):
     isbn= request.json['isbn']
     user_token = current_user_token.token
 
-    print(f'BIG TESTER: {current_user_token.token}')
+    print(f'BIG TESTER: {user_token}')
 
     contact = Contact(name, email, title, author, style, isbn, user_token = user_token)
 
